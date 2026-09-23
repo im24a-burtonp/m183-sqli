@@ -1,0 +1,29 @@
+# Startet eine lokale MySQL-Instanz als Datenschicht.
+# Start:   docker compose up -d
+# Stop:    docker compose down
+# Reset:   docker compose down -v   (löscht auch die Daten)
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: m183-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: rootsecret
+      MYSQL_DATABASE: m183_sqli
+      MYSQL_USER: m183
+      MYSQL_PASSWORD: m183secret
+    ports:
+      - "3306:3306"
+    volumes:
+      # Legt das Schema beim ersten Start automatisch an.
+      - ./db/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+      - m183-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-prootsecret"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  m183-data:
