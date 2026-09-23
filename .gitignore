@@ -1,0 +1,15 @@
+# Abhängigkeiten
+node_modules/
+
+# Umgebungsvariablen (enthalten Zugangsdaten – niemals einchecken!)
+.env
+
+# Logs
+*.log
+npm-debug.log*
+
+# Betriebssystem-/Editor-Dateien
+.DS_Store
+.idea/
+.vscode/
+*.swp
