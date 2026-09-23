@@ -1,0 +1,13 @@
+{
+  "users": [
+    { "username": "admin",  "password": "S3cur3-Admin!2024", "role": "admin", "email": "admin@m183.local" },
+    { "username": "felix",  "password": "hunter2",           "role": "user",  "email": "felix@m183.local" },
+    { "username": "sabine", "password": "sommer2024",        "role": "user",  "email": "sabine@m183.local" },
+    { "username": "marco",  "password": "passw0rd",          "role": "user",  "email": "marco@m183.local" }
+  ],
+  "secrets": [
+    { "owner": "admin",  "label": "Master-Key",       "content": "AK-9f2c-PRODUCTION-DO-NOT-SHARE" },
+    { "owner": "admin",  "label": "DB-Backup-Passwort","content": "backup!2024#restore" },
+    { "owner": "felix",  "label": "Notiz",            "content": "Bonuszahlung Q4 nicht vergessen" }
+  ]
+}
