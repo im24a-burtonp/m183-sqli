@@ -24,7 +24,7 @@ Bewertung). Jede Aufgabe ist zusätzlich als GitHub-Issue erfasst.
 
 ## Nachweis / Doku
 
-- [ ] Jeden Angriff einmal gegen `vulnerable` (erfolgreich) und einmal
+- [x] Jeden Angriff einmal gegen `vulnerable` (erfolgreich) und einmal
       gegen `secured` (abgewehrt) ausführen und dokumentieren.
 - [ ] Optional: Postman-Collection in `postman/` ergänzen.
-- [ ] Arbeitsaufteilung im Team über Commits/Branches sichtbar halten.
+- [x] Arbeitsaufteilung im Team über Commits/Branches sichtbar halten.
