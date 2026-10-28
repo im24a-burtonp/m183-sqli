@@ -6,7 +6,7 @@ Bewertung). Jede Aufgabe ist zusätzlich als GitHub-Issue erfasst.
 
 ## Angriffe
 
-- [ ] **2.2 Verfügbarkeit** – `attacks/attack-availability.js`
+- [x] **2.2 Verfügbarkeit** – `attacks/attack-availability.js`
   Payload gegen `/search` bauen: entweder Zeitverzögerung (`SLEEP`) oder
   gezielter SQL-Syntaxfehler, der den Server abstürzen lässt.
 
